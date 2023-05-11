@@ -241,7 +241,7 @@
         app:layout_constraintTop_toBottomOf="@+id/textWater" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="10dp"
@@ -249,6 +249,16 @@
         android:onClick="saveButton"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    <Button
+        android:id="@+id/buttonCalc"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="10dp"
+        android:onClick="calcButton"
+        android:text="Recommend"
+        app:layout_constraintBottom_toTopOf="@+id/targetsText"
         app:layout_constraintEnd_toEndOf="parent" />
 
 
