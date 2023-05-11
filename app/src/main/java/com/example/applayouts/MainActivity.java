@@ -32,13 +32,13 @@ C: Permissions, permission to set alarms? Might be easy 2%
 D: Intents, use to move between screens, easy 2%                                                                            DONE
 E: Intents 2, use to open calendar? hopefully easy 2%
 F: Content Provider, provides local data for other apps, use it to send information to timer or calendar?, hard 6%
-G: Shared Preferences, simple data storage, use to store user information, moderate 2%
+G: Shared Preferences, simple data storage, use to store user information, moderate 2%                                      DONE
 H: Database, use to store history information, hard 6%
 I: Firebase, for login? moderate 4%
 J: Broadcasts, ACTION_BATTERY_LOW joke about feeding your phone too? easy if used 2%
 K: Extend View, not sure how to use but is easy 2%
 L: ShareActionProvider, used to share things online?, use to share streak. moderate 2%
-M: Service, does something while the app isnt open, dont know how to use, 6%
+M: Service, does something while the app isn't open, don't know how to use, 6%
 N: Alarms, set hydration alarms, easy  2%
 O: Notification, send hydration notifications, easy 2%
 P: Touch gestures, scrolling or swiping between screens, optional easy 3%
