@@ -1,14 +1,18 @@
 package com.example.applayouts;
 
+import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.database.Cursor;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.Manifest;
-import com.google.android.material.snackbar.Snackbar;
+
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,10 +20,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 
 import androidx.core.content.ContextCompat;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
+
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+
 
 import com.example.applayouts.databinding.ActivityMainBinding;
 
@@ -37,14 +40,14 @@ B: App lifecycle, onpause(), onStart(), onCreate() etc., remember entered inform
 C: Permissions, permission to send notifications Might be easy 2%                                                           DONE
 D: Intents, use to move between screens, easy 2%                                                                            DONE
 E: Intents 2, use to open calendar? hopefully easy 2%
-F: Content Provider, use it to access my own database, hard 6%
+F: Content Provider, use it to access my own database, hard 6%                                                              DONE
 G: Shared Preferences, simple data storage, use to store user information, moderate 2%                                      DONE
-H: Database, use to store history information, hard 6%
+H: Database, use to store history information, hard 6%                                                                      DONE
 I: Firebase, for login? moderate 4%                                                                                         NO
 J: Broadcasts, receives hydration alarm broadcast easy if used 2%                                                           DONE
 K: Extend View, not sure how to use but is easy 2%
 L: ShareActionProvider, used to share things online?, use to share streak. moderate 2%
-M: Service, does something while the app isn't open, don't know how to use, 6%
+M: Service, does something while the app isn't open, don't know how to use, 6%                                              NO
 N: Alarms, set hydration alarms, easy  2%                                                                                   DONE
 O: Notification, send hydration notifications, easy 2%                                                                      DONE
 P: Touch gestures, scrolling or swiping between screens, optional easy 3%
@@ -126,18 +129,13 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        } else if (id == R.id.action_profile){
+
+        if (id == R.id.action_profile){
             Intent intent = new Intent(this, Profile.class);
             startActivity(intent);
         }  else if (id == R.id.action_calendar){
-        Context context = getApplicationContext();
-        CharSequence text = "Calendar!";
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
+            Intent intent = new Intent(this, calendar.class);
+            startActivity(intent);
     }
 
         return super.onOptionsItemSelected(item);
@@ -145,14 +143,21 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
 
 
     public void nutritionButtonPress(View v){
-        Context context = getApplicationContext();
-        CharSequence text = "Nutrition!";
-        int duration = Toast.LENGTH_SHORT;
+        Intent intent = new Intent(this, add_nutrition.class);
+        startActivity(intent);
 
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
+
+
+        /*DATABASE TEST
+        ContentValues values = new ContentValues();
+        values.put("score",1);
+        getContentResolver().insert(myProvider.uri, values);
+        Toast.makeText(getBaseContext(), "New Record Inserted", Toast.LENGTH_LONG).show();
+
+         */
     }
 
+    @SuppressLint("Range")
     public void hydrationButtonPress(View v){
         Context context = getApplicationContext();
         CharSequence text = "Hydration!";
@@ -160,6 +165,22 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
 
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
+
+
+
+        //DATABASE TEST
+        Cursor cursor = getContentResolver().query(Uri.parse("content://com.example.applayouts.provider/data"), null, null, null, null);
+        if(cursor.moveToFirst()) {
+            StringBuilder strBuild=new StringBuilder();
+            while (!cursor.isAfterLast()) {
+                strBuild.append("\n"+cursor.getString(cursor.getColumnIndex("id"))+ "-"+ cursor.getString(cursor.getColumnIndex("score")));
+                cursor.moveToNext();
+            }
+            Toast.makeText(getBaseContext(), strBuild, Toast.LENGTH_LONG).show();
+        }
+        else {
+            Toast.makeText(getBaseContext(), "No Records", Toast.LENGTH_LONG).show();
+        }
     }
 
 

@@ -1,0 +1,708 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frameLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".calendar">
+
+    <TextView
+        android:id="@+id/calendarText"
+        android:layout_width="162dp"
+        android:layout_height="43dp"
+        android:layout_marginTop="16dp"
+        android:text="Calendar:"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/day1"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="2dp"
+        android:background="#ff00ff"
+        app:layout_constraintEnd_toStartOf="@+id/day2"
+        app:layout_constraintTop_toBottomOf="@+id/calendarText" />
+
+    <View
+        android:id="@+id/day2"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="2dp"
+        android:background="#ff00ff"
+        app:layout_constraintEnd_toStartOf="@+id/day3"
+        app:layout_constraintTop_toTopOf="@+id/day1" />
+
+    <View
+        android:id="@+id/day3"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginEnd="2dp"
+        android:background="#ff00ff"
+        app:layout_constraintEnd_toStartOf="@+id/day4"
+        app:layout_constraintTop_toTopOf="@+id/day2" />
+
+    <View
+        android:id="@+id/day4"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:background="#ff00ff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/day1" />
+
+    <View
+        android:id="@+id/day5"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day4"
+        app:layout_constraintTop_toTopOf="@+id/day1" />
+
+    <View
+        android:id="@+id/day6"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day5"
+        app:layout_constraintTop_toTopOf="@+id/day5" />
+
+    <View
+        android:id="@+id/day7"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day6"
+        app:layout_constraintTop_toTopOf="@+id/day1" />
+
+    <View
+        android:id="@+id/day8"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:background="#ff00ff"
+        app:layout_constraintEnd_toStartOf="@+id/day9"
+        app:layout_constraintTop_toBottomOf="@+id/day1" />
+
+    <View
+        android:id="@+id/day9"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day1"
+        app:layout_constraintTop_toTopOf="@+id/day8" />
+
+    <View
+        android:id="@+id/day10"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day2"
+        app:layout_constraintTop_toTopOf="@+id/day8" />
+
+    <View
+        android:id="@+id/day11"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day3"
+        app:layout_constraintTop_toTopOf="@+id/day8" />
+
+    <View
+        android:id="@+id/day12"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day4"
+        app:layout_constraintTop_toTopOf="@+id/day8" />
+
+    <View
+        android:id="@+id/day13"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day5"
+        app:layout_constraintTop_toTopOf="@+id/day8" />
+
+    <View
+        android:id="@+id/day14"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day6"
+        app:layout_constraintTop_toTopOf="@+id/day8" />
+
+    <View
+        android:id="@+id/day15"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:background="#ff00ff"
+        app:layout_constraintEnd_toStartOf="@+id/day9"
+        app:layout_constraintTop_toBottomOf="@+id/day8" />
+
+    <View
+        android:id="@+id/day16"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day1"
+        app:layout_constraintTop_toTopOf="@+id/day15" />
+
+    <View
+        android:id="@+id/day17"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day2"
+        app:layout_constraintTop_toTopOf="@+id/day15" />
+
+    <View
+        android:id="@+id/day18"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day3"
+        app:layout_constraintTop_toTopOf="@+id/day15" />
+
+    <View
+        android:id="@+id/day19"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day4"
+        app:layout_constraintTop_toTopOf="@+id/day15" />
+
+    <View
+        android:id="@+id/day20"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day5"
+        app:layout_constraintTop_toTopOf="@+id/day15" />
+
+    <View
+        android:id="@+id/day21"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day6"
+        app:layout_constraintTop_toTopOf="@+id/day15" />
+
+    <View
+        android:id="@+id/day22"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginTop="2dp"
+        android:layout_marginEnd="2dp"
+        android:background="#ff00ff"
+        app:layout_constraintEnd_toStartOf="@+id/day9"
+        app:layout_constraintTop_toBottomOf="@+id/day15" />
+
+    <View
+        android:id="@+id/day23"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day1"
+        app:layout_constraintTop_toTopOf="@+id/day22" />
+
+    <View
+        android:id="@+id/day24"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day2"
+        app:layout_constraintTop_toTopOf="@+id/day22" />
+
+    <View
+        android:id="@+id/day25"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day3"
+        app:layout_constraintTop_toTopOf="@+id/day22" />
+
+    <View
+        android:id="@+id/day26"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day4"
+        app:layout_constraintTop_toTopOf="@+id/day22" />
+
+    <View
+        android:id="@+id/day27"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day5"
+        app:layout_constraintTop_toTopOf="@+id/day22" />
+
+    <View
+        android:id="@+id/day28"
+        android:layout_width="45dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="2dp"
+        android:layout_marginTop="0dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/day6"
+        app:layout_constraintTop_toTopOf="@+id/day22" />
+
+    <TextView
+        android:id="@+id/streakView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:text="Streak:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/day22" />
+
+    <TextView
+        android:id="@+id/streakValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/streakView"
+        app:layout_constraintStart_toEndOf="@+id/streakView" />
+
+    <TextView
+        android:id="@+id/scoreView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Current Score:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/streakView" />
+
+    <TextView
+        android:id="@+id/scoreValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/scoreView"
+        app:layout_constraintStart_toEndOf="@+id/scoreView" />
+
+    <TextView
+        android:id="@+id/highscoreView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="High Score:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/scoreView" />
+
+    <TextView
+        android:id="@+id/highscoreValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/highscoreView"
+        app:layout_constraintStart_toEndOf="@+id/highscoreView" />
+
+    <TextView
+        android:id="@+id/explainText"
+        android:layout_width="377dp"
+        android:layout_height="71dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="48dp"
+        android:text="Your score is the total score of all days in the last 28 days. A single days score is rated out of 6, with one point awarded for each nutritional value that was at least 70% filled but not exceeded."
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/highscoreView" />
+
+    <TextView
+        android:id="@+id/dayScore1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day1"
+        app:layout_constraintEnd_toEndOf="@+id/day1"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintVertical_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/day1"
+        app:layout_constraintTop_toTopOf="@+id/day1" />
+
+    <TextView
+        android:id="@+id/dayScore2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day2"
+        app:layout_constraintEnd_toEndOf="@+id/day2"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day2"
+        app:layout_constraintTop_toTopOf="@+id/day2" />
+
+    <TextView
+        android:id="@+id/dayScore3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day3"
+        app:layout_constraintEnd_toEndOf="@+id/day3"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day3"
+        app:layout_constraintTop_toTopOf="@+id/day3" />
+
+    <TextView
+        android:id="@+id/dayScore4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day4"
+        app:layout_constraintEnd_toEndOf="@+id/day4"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day4"
+        app:layout_constraintTop_toTopOf="@+id/day4" />
+
+    <TextView
+        android:id="@+id/dayScore5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day5"
+        app:layout_constraintEnd_toEndOf="@+id/day5"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day5"
+        app:layout_constraintTop_toTopOf="@+id/day5" />
+
+    <TextView
+        android:id="@+id/dayScore6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day6"
+        app:layout_constraintEnd_toEndOf="@+id/day6"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day6"
+        app:layout_constraintTop_toTopOf="@+id/day6" />
+
+    <TextView
+        android:id="@+id/dayScore7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day7"
+        app:layout_constraintEnd_toEndOf="@+id/day7"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day7"
+        app:layout_constraintTop_toTopOf="@+id/day7" />
+
+    <TextView
+        android:id="@+id/dayScore8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day8"
+        app:layout_constraintEnd_toEndOf="@+id/day8"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day8"
+        app:layout_constraintTop_toTopOf="@+id/day8" />
+
+    <TextView
+        android:id="@+id/dayScore9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day9"
+        app:layout_constraintEnd_toEndOf="@+id/day9"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day9"
+        app:layout_constraintTop_toTopOf="@+id/day9" />
+
+    <TextView
+        android:id="@+id/dayScore10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day10"
+        app:layout_constraintEnd_toEndOf="@+id/day10"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day10"
+        app:layout_constraintTop_toTopOf="@+id/day10" />
+
+    <TextView
+        android:id="@+id/dayScore11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day11"
+        app:layout_constraintEnd_toEndOf="@+id/day11"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day11"
+        app:layout_constraintTop_toTopOf="@+id/day11" />
+
+    <TextView
+        android:id="@+id/dayScore12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day12"
+        app:layout_constraintEnd_toEndOf="@+id/day12"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day12"
+        app:layout_constraintTop_toTopOf="@+id/day12" />
+
+    <TextView
+        android:id="@+id/dayScore13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day13"
+        app:layout_constraintEnd_toEndOf="@+id/day13"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day13"
+        app:layout_constraintTop_toTopOf="@+id/day13" />
+
+    <TextView
+        android:id="@+id/dayScore14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day14"
+        app:layout_constraintEnd_toEndOf="@+id/day14"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day14"
+        app:layout_constraintTop_toTopOf="@+id/day14" />
+
+    <TextView
+        android:id="@+id/dayScore15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day15"
+        app:layout_constraintEnd_toEndOf="@+id/day15"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day15"
+        app:layout_constraintTop_toTopOf="@+id/day15" />
+
+    <TextView
+        android:id="@+id/dayScore16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day16"
+        app:layout_constraintEnd_toEndOf="@+id/day16"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day16"
+        app:layout_constraintTop_toTopOf="@+id/day16" />
+
+    <TextView
+        android:id="@+id/dayScore17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day17"
+        app:layout_constraintEnd_toEndOf="@+id/day17"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day17"
+        app:layout_constraintTop_toTopOf="@+id/day17" />
+
+    <TextView
+        android:id="@+id/dayScore18"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day18"
+        app:layout_constraintEnd_toEndOf="@+id/day18"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day18"
+        app:layout_constraintTop_toTopOf="@+id/day18" />
+
+    <TextView
+        android:id="@+id/dayScore19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day19"
+        app:layout_constraintEnd_toEndOf="@+id/day19"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day19"
+        app:layout_constraintTop_toTopOf="@+id/day19" />
+
+    <TextView
+        android:id="@+id/dayScore20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day20"
+        app:layout_constraintEnd_toEndOf="@+id/day20"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day20"
+        app:layout_constraintTop_toTopOf="@+id/day20" />
+
+    <TextView
+        android:id="@+id/dayScore21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day21"
+        app:layout_constraintEnd_toEndOf="@+id/day21"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day21"
+        app:layout_constraintTop_toTopOf="@+id/day21" />
+
+    <TextView
+        android:id="@+id/dayScore22"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day22"
+        app:layout_constraintEnd_toEndOf="@+id/day22"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day22"
+        app:layout_constraintTop_toTopOf="@+id/day22" />
+
+    <TextView
+        android:id="@+id/dayScore23"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day23"
+        app:layout_constraintEnd_toEndOf="@+id/day23"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day23"
+        app:layout_constraintTop_toTopOf="@+id/day23" />
+
+    <TextView
+        android:id="@+id/dayScore24"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day24"
+        app:layout_constraintEnd_toEndOf="@+id/day24"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day24"
+        app:layout_constraintTop_toTopOf="@+id/day24" />
+
+    <TextView
+        android:id="@+id/dayScore25"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day25"
+        app:layout_constraintEnd_toEndOf="@+id/day25"
+        app:layout_constraintHorizontal_bias="0.5"
+        
+        app:layout_constraintStart_toStartOf="@+id/day25"
+        app:layout_constraintTop_toTopOf="@+id/day25" />
+
+    <TextView
+        android:id="@+id/dayScore26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day26"
+        app:layout_constraintEnd_toEndOf="@+id/day26"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintStart_toStartOf="@+id/day26"
+        app:layout_constraintTop_toTopOf="@+id/day26" />
+
+    <TextView
+        android:id="@+id/dayScore27"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day27"
+        app:layout_constraintEnd_toEndOf="@+id/day27"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintStart_toStartOf="@+id/day27"
+        app:layout_constraintTop_toTopOf="@+id/day27" />
+
+    <TextView
+        android:id="@+id/dayScore28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="@+id/day28"
+        app:layout_constraintEnd_toEndOf="@+id/day28"
+        app:layout_constraintHorizontal_bias="0.5"
+
+        app:layout_constraintStart_toStartOf="@+id/day28"
+        app:layout_constraintTop_toTopOf="@+id/day28" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

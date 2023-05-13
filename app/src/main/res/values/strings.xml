@@ -26,5 +26,7 @@
 
     <string name="hydrationGradientRatio">0.2</string>
     <string name="title_activity_profile">Profile</string>
+    <string name="title_activity_add_nutrition">Track Food</string>
+    <string name="title_activity_calendar">Calendar</string>
 
 </resources>

@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout3"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".add_nutrition">
+
+
+    <TextView
+        android:id="@+id/titleText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Track Food:"
+        android:textSize="32sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <View
+        android:id="@+id/caloriesBox"
+        android:layout_width="65dp"
+        android:layout_height="90dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="5dp"
+        android:background="#ff00ff"
+        app:layout_constraintEnd_toStartOf="@+id/fatBox"
+        app:layout_constraintTop_toBottomOf="@+id/titleText" />
+
+    <View
+        android:id="@+id/fatBox"
+        android:layout_width="65dp"
+        android:layout_height="90dp"
+        android:layout_marginEnd="5dp"
+        android:background="#ff00ff"
+        app:layout_constraintEnd_toStartOf="@+id/saturatesBox"
+        app:layout_constraintTop_toTopOf="@+id/caloriesBox" />
+
+    <View
+        android:id="@+id/saturatesBox"
+        android:layout_width="65dp"
+        android:layout_height="90dp"
+        android:background="#ff00ff"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/caloriesBox" />
+
+    <View
+        android:id="@+id/sugarBox"
+        android:layout_width="65dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="5dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/saturatesBox"
+        app:layout_constraintTop_toTopOf="@+id/saturatesBox" />
+
+    <View
+        android:id="@+id/saltBox"
+        android:layout_width="65dp"
+        android:layout_height="90dp"
+        android:layout_marginStart="5dp"
+        android:background="#ff00ff"
+        app:layout_constraintStart_toEndOf="@+id/sugarBox"
+        app:layout_constraintTop_toTopOf="@+id/sugarBox" />
+
+    <TextView
+        android:id="@+id/caloriesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Energy"
+        app:layout_constraintEnd_toEndOf="@+id/caloriesBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/caloriesBox"
+        app:layout_constraintTop_toTopOf="@+id/caloriesBox" />
+
+    <TextView
+        android:id="@+id/fatLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Fat"
+        app:layout_constraintEnd_toEndOf="@+id/fatBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/fatBox"
+        app:layout_constraintTop_toTopOf="@+id/fatBox" />
+
+    <TextView
+        android:id="@+id/saturatesLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Saturates"
+        app:layout_constraintEnd_toEndOf="@+id/saturatesBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/saturatesBox"
+        app:layout_constraintTop_toTopOf="@+id/saturatesBox" />
+
+    <TextView
+        android:id="@+id/sugarLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Sugar"
+        app:layout_constraintEnd_toEndOf="@+id/sugarBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/sugarBox"
+        app:layout_constraintTop_toTopOf="@+id/sugarBox" />
+
+    <TextView
+        android:id="@+id/saltLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="Salt"
+        app:layout_constraintEnd_toEndOf="@+id/saltBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/saltBox"
+        app:layout_constraintTop_toTopOf="@+id/saltBox" />
+
+    <EditText
+        android:id="@+id/editCalories"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/caloriesBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/caloriesBox"
+        app:layout_constraintTop_toBottomOf="@+id/caloriesLabel" />
+
+    <EditText
+        android:id="@+id/editFat"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/fatBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/fatBox"
+        app:layout_constraintTop_toBottomOf="@+id/fatLabel" />
+
+    <EditText
+        android:id="@+id/editSaturates"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/saturatesBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/saturatesBox"
+        app:layout_constraintTop_toBottomOf="@+id/saturatesLabel" />
+
+    <EditText
+        android:id="@+id/editSugar"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/sugarBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/sugarBox"
+        app:layout_constraintTop_toBottomOf="@+id/sugarLabel" />
+
+    <EditText
+        android:id="@+id/editSalt"
+        android:layout_width="20dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text="0"
+        app:layout_constraintEnd_toEndOf="@+id/saltBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/saltBox"
+        app:layout_constraintTop_toBottomOf="@+id/saltLabel" />
+
+    <TextView
+        android:id="@+id/caloriesP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="0%"
+        app:layout_constraintEnd_toEndOf="@+id/caloriesBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/caloriesBox"
+        app:layout_constraintBottom_toBottomOf="@+id/caloriesBox" />
+
+    <TextView
+        android:id="@+id/fatP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="0%"
+        app:layout_constraintEnd_toEndOf="@+id/fatBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/fatBox"
+        app:layout_constraintBottom_toBottomOf="@+id/fatBox" />
+
+    <TextView
+        android:id="@+id/saturatesP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="0%"
+        app:layout_constraintEnd_toEndOf="@+id/saturatesBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/saturatesBox"
+        app:layout_constraintBottom_toBottomOf="@+id/saturatesBox" />
+
+    <TextView
+        android:id="@+id/sugarP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="0%"
+        app:layout_constraintEnd_toEndOf="@+id/sugarBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/sugarBox"
+        app:layout_constraintBottom_toBottomOf="@+id/sugarBox" />
+
+    <TextView
+        android:id="@+id/saltP"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="2dp"
+        android:text="0%"
+        app:layout_constraintEnd_toEndOf="@+id/saltBox"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="@+id/saltBox"
+        app:layout_constraintBottom_toBottomOf="@+id/saltBox" />
+
+    <TextView
+        android:id="@+id/listedText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:text="Listed values per portion:"
+        app:layout_constraintBottom_toTopOf="@+id/caloriesBox"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText"
+        app:layout_constraintVertical_bias="0.5" />
+
+    <TextView
+        android:id="@+id/portionsText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginTop="32dp"
+        android:text="How many portions did you eat:"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/caloriesBox" />
+
+    <EditText
+        android:id="@+id/editPortions"
+        android:layout_width="220dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:inputType="number"
+        android:text=""
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/portionsText" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="96dp"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editPortions" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

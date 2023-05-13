@@ -9,15 +9,14 @@ import com.google.android.material.snackbar.Snackbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
+import android.view.Menu;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
+
 
 import com.example.applayouts.databinding.ActivityProfileBinding;
 
@@ -62,6 +61,13 @@ public class Profile extends AppCompatActivity {
         sugar.setText(Integer.toString(sharedPreferences.getInt("sugar", 0)));
         EditText water = findViewById(R.id.editTextWater);
         water.setText(Integer.toString(sharedPreferences.getInt("water", 0)));
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_main, menu);
+        return true;
     }
 
     public void save(View v){
