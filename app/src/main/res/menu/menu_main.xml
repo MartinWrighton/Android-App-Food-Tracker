@@ -6,7 +6,7 @@
     <item
         android:id="@+id/action_calendar"
         android:orderInCategory="100"
-        android:icon="@drawable/ic_launcher_foreground"
+        android:icon="@drawable/calendar_icon"
         android:title="@string/action_calendar"
         app:showAsAction="ifRoom" />
     <item

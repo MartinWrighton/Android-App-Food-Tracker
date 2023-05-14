@@ -15,6 +15,7 @@
         android:layout_marginTop="16dp"
         android:text="Track Food:"
         android:textSize="32sp"
+
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,7 +27,7 @@
         android:layout_height="90dp"
         android:layout_marginTop="60dp"
         android:layout_marginEnd="5dp"
-        android:background="#ff00ff"
+        android:background="#cccccc"
         app:layout_constraintEnd_toStartOf="@+id/fatBox"
         app:layout_constraintTop_toBottomOf="@+id/titleText" />
 
@@ -35,7 +36,7 @@
         android:layout_width="65dp"
         android:layout_height="90dp"
         android:layout_marginEnd="5dp"
-        android:background="#ff00ff"
+        android:background="#aaff00"
         app:layout_constraintEnd_toStartOf="@+id/saturatesBox"
         app:layout_constraintTop_toTopOf="@+id/caloriesBox" />
 
@@ -43,7 +44,7 @@
         android:id="@+id/saturatesBox"
         android:layout_width="65dp"
         android:layout_height="90dp"
-        android:background="#ff00ff"
+        android:background="#aaff00"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/caloriesBox" />
@@ -53,7 +54,7 @@
         android:layout_width="65dp"
         android:layout_height="90dp"
         android:layout_marginStart="5dp"
-        android:background="#ff00ff"
+        android:background="#aaff00"
         app:layout_constraintStart_toEndOf="@+id/saturatesBox"
         app:layout_constraintTop_toTopOf="@+id/saturatesBox" />
 
@@ -62,7 +63,7 @@
         android:layout_width="65dp"
         android:layout_height="90dp"
         android:layout_marginStart="5dp"
-        android:background="#ff00ff"
+        android:background="#aaff00"
         app:layout_constraintStart_toEndOf="@+id/sugarBox"
         app:layout_constraintTop_toTopOf="@+id/sugarBox" />
 
@@ -123,10 +124,10 @@
 
     <EditText
         android:id="@+id/editCalories"
-        android:layout_width="20dp"
+        android:layout_width="60dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:text="0"
         app:layout_constraintEnd_toEndOf="@+id/caloriesBox"
         app:layout_constraintHorizontal_bias="0.5"
@@ -135,10 +136,10 @@
 
     <EditText
         android:id="@+id/editFat"
-        android:layout_width="20dp"
+        android:layout_width="60dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:text="0"
         app:layout_constraintEnd_toEndOf="@+id/fatBox"
         app:layout_constraintHorizontal_bias="0.5"
@@ -147,10 +148,10 @@
 
     <EditText
         android:id="@+id/editSaturates"
-        android:layout_width="20dp"
+        android:layout_width="60dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:text="0"
         app:layout_constraintEnd_toEndOf="@+id/saturatesBox"
         app:layout_constraintHorizontal_bias="0.5"
@@ -159,10 +160,10 @@
 
     <EditText
         android:id="@+id/editSugar"
-        android:layout_width="20dp"
+        android:layout_width="60dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:text="0"
         app:layout_constraintEnd_toEndOf="@+id/sugarBox"
         app:layout_constraintHorizontal_bias="0.5"
@@ -171,10 +172,10 @@
 
     <EditText
         android:id="@+id/editSalt"
-        android:layout_width="20dp"
+        android:layout_width="60dp"
         android:layout_height="40dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:text="0"
         app:layout_constraintEnd_toEndOf="@+id/saltBox"
         app:layout_constraintHorizontal_bias="0.5"
@@ -186,7 +187,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:text="0%"
+        android:text="0.0%"
         app:layout_constraintEnd_toEndOf="@+id/caloriesBox"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/caloriesBox"
@@ -197,7 +198,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:text="0%"
+        android:text="0.0%"
         app:layout_constraintEnd_toEndOf="@+id/fatBox"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/fatBox"
@@ -208,7 +209,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:text="0%"
+        android:text="0.0%"
         app:layout_constraintEnd_toEndOf="@+id/saturatesBox"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/saturatesBox"
@@ -219,7 +220,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:text="0%"
+        android:text="0.0%"
         app:layout_constraintEnd_toEndOf="@+id/sugarBox"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/sugarBox"
@@ -230,7 +231,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="2dp"
-        android:text="0%"
+        android:text="0.0%"
         app:layout_constraintEnd_toEndOf="@+id/saltBox"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/saltBox"
@@ -264,7 +265,7 @@
         android:layout_height="48dp"
         android:layout_marginTop="20dp"
         android:ems="10"
-        android:inputType="number"
+        android:inputType="numberDecimal"
         android:text=""
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -275,6 +276,7 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_marginTop="96dp"
+        android:onClick="onSave"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

@@ -1,54 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/frameLayout2"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/coordinatorLayout4"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    app:layout_constraintBottom_toBottomOf="parent">
+    android:layout_height="match_parent"
+    tools:context=".add_hydration">
 
     <TextView
-        android:id="@+id/hydrationText"
+        android:id="@+id/titleText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:text="Hydration:"
+        android:layout_marginTop="16dp"
+        android:text="Track Water:"
         android:textSize="32sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <View
-        android:id="@+id/hydrationBox"
-        android:layout_width="318dp"
-        android:layout_height="245dp"
-        android:layout_marginTop="5dp"
-        android:background="@drawable/hydrationgradient"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hydrationText" />
-
     <TextView
         android:id="@+id/hydrationAmount"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="0%"
+        android:text="0ml"
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="@+id/hydrationBox"
         app:layout_constraintEnd_toEndOf="@+id/hydrationBox"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="@+id/hydrationBox"
         app:layout_constraintTop_toTopOf="@+id/hydrationBox"
         app:layout_constraintVertical_bias="0.5" />
 
-    <Button
-        android:id="@+id/trackButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
-        android:onClick="hydrationButtonPress"
-        android:text="Track More"
+    <View
+        android:id="@+id/hydrationBox"
+        android:layout_width="318dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="96dp"
+        android:background="@drawable/addhydrationgradient"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/titleText" />
+
+    <Button
+        android:id="@+id/buttonSave"
+        android:layout_width="200dp"
+        android:layout_height="100dp"
+        android:layout_marginTop="96dp"
+        android:text="Save"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hydrationBox" />
 

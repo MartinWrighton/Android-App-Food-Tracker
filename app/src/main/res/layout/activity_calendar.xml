@@ -363,7 +363,7 @@
         android:layout_height="71dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="48dp"
-        android:text="Your score is the total score of all days in the last 28 days. A single days score is rated out of 6, with one point awarded for each nutritional value that was at least 70% filled but not exceeded."
+        android:text="Your score is the total score of all days in the last 28 days. A single days score is rated out of 6, with one point awarded for each nutritional value that was at least 70% filled but not exceeded or if water was filled."
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toStartOf="parent"

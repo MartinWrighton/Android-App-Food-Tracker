@@ -1,6 +1,7 @@
 package com.example.applayouts;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
@@ -10,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Spinner;
@@ -70,6 +72,25 @@ public class Profile extends AppCompatActivity {
         return true;
     }
 
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int id = item.getItemId();
+
+        //noinspection SimplifiableIfStatement
+
+        if (id == R.id.action_profile){
+            Intent intent = new Intent(this, Profile.class);
+            startActivity(intent);
+            finish();
+        }  else if (id == R.id.action_calendar){
+            Intent intent = new Intent(this, calendar.class);
+            startActivity(intent);
+            finish();
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+
     public void save(View v){
         EditText age = findViewById(R.id.editTextAge);
         Spinner gender = findViewById(R.id.spinnerGender);
@@ -86,17 +107,18 @@ public class Profile extends AppCompatActivity {
         SharedPreferences.Editor myEdit = sharedPreferences.edit();
 
         // write all the data entered by the user in SharedPreference and apply
-        myEdit.putInt("age", Integer.parseInt(age.getText().toString()));
+        myEdit.putInt("age", Integer.parseInt("0"+age.getText().toString()));
         myEdit.putString("gender", gender.getSelectedItem().toString());
-        myEdit.putInt("weight", Integer.parseInt(weight.getText().toString()));
-        myEdit.putInt("height", Integer.parseInt(height.getText().toString()));
-        myEdit.putInt("calories", Integer.parseInt(calories.getText().toString()));
-        myEdit.putInt("fat", Integer.parseInt(fat.getText().toString()));
-        myEdit.putInt("saturates", Integer.parseInt(saturates.getText().toString()));
-        myEdit.putInt("salt", Integer.parseInt(salt.getText().toString()));
-        myEdit.putInt("sugar", Integer.parseInt(sugar.getText().toString()));
-        myEdit.putInt("water", Integer.parseInt(water.getText().toString()));
+        myEdit.putInt("weight", Integer.parseInt("0"+weight.getText().toString()));
+        myEdit.putInt("height", Integer.parseInt("0"+height.getText().toString()));
+        myEdit.putInt("calories", Integer.parseInt("0"+calories.getText().toString()));
+        myEdit.putInt("fat", Integer.parseInt("0"+fat.getText().toString()));
+        myEdit.putInt("saturates", Integer.parseInt("0"+saturates.getText().toString()));
+        myEdit.putInt("salt", Integer.parseInt("0"+salt.getText().toString()));
+        myEdit.putInt("sugar", Integer.parseInt("0"+sugar.getText().toString()));
+        myEdit.putInt("water", Integer.parseInt("0"+water.getText().toString()));
         myEdit.apply();
+
     }
 
 

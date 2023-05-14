@@ -1,13 +1,18 @@
 package com.example.applayouts;
 
+import static java.lang.Integer.max;
+
 import android.annotation.SuppressLint;
 import android.app.AlarmManager;
 import android.app.PendingIntent;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.content.res.ColorStateList;
 import android.database.Cursor;
+import android.graphics.Color;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -24,19 +29,22 @@ import androidx.core.content.ContextCompat;
 import androidx.navigation.ui.AppBarConfiguration;
 
 
-import com.example.applayouts.databinding.ActivityMainBinding;
+
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.EditText;
+import android.widget.ProgressBar;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
-    private ActivityMainBinding binding;
+;
     /* MAKE SURE YOU DO THE USER GUIDE
 A: Two screens, basically done Very Easy 4%                                                                                 DONE
-B: App lifecycle, onpause(), onStart(), onCreate() etc., remember entered information when tabbing out? Easy 3%
+B: App lifecycle, onResume()   Easy 3%                                                                                      DONE
 C: Permissions, permission to send notifications Might be easy 2%                                                           DONE
 D: Intents, use to move between screens, easy 2%                                                                            DONE
 E: Intents 2, use to open calendar? hopefully easy 2%
@@ -52,6 +60,8 @@ N: Alarms, set hydration alarms, easy  2%                                       
 O: Notification, send hydration notifications, easy 2%                                                                      DONE
 P: Touch gestures, scrolling or swiping between screens, optional easy 3%
 
+
+    add first time setup
      */
     @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     @Override
@@ -82,11 +92,17 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
                     );
         }
 
-
-
-
+    updateBars();
 
     }
+
+    @Override
+    protected void onResume(){
+        super.onResume();
+        updateBars();
+
+    }
+
     @Override
     public void onRequestPermissionsResult(int requestCode, String[] permissions,
                                            int[] grantResults) {
@@ -159,16 +175,12 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
 
     @SuppressLint("Range")
     public void hydrationButtonPress(View v){
-        Context context = getApplicationContext();
-        CharSequence text = "Hydration!";
-        int duration = Toast.LENGTH_SHORT;
-
-        Toast toast = Toast.makeText(context, text, duration);
-        toast.show();
+        Intent intent = new Intent(this, add_hydration.class);
+        startActivity(intent);
 
 
 
-        //DATABASE TEST
+        /*DATABASE TEST
         Cursor cursor = getContentResolver().query(Uri.parse("content://com.example.applayouts.provider/data"), null, null, null, null);
         if(cursor.moveToFirst()) {
             StringBuilder strBuild=new StringBuilder();
@@ -180,6 +192,83 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
         }
         else {
             Toast.makeText(getBaseContext(), "No Records", Toast.LENGTH_LONG).show();
+        }
+
+         */
+    }
+
+    private void updateBars(){
+        //display data correctly
+        SharedPreferences sharedPreferences = getSharedPreferences("Profile", MODE_PRIVATE);
+        int currentCalories = sharedPreferences.getInt("currentCalories", 0);
+        int currentFat = sharedPreferences.getInt("currentFat", 0);
+        int currentSaturates = sharedPreferences.getInt("currentSaturates", 0);
+        int currentSalt = sharedPreferences.getInt("currentSalt", 0);
+        int currentSugar = sharedPreferences.getInt("currentSugar", 0);
+        int currentWater = sharedPreferences.getInt("currentWater", 0);
+
+
+        int maxCalories = sharedPreferences.getInt("calories", 0);
+        int maxFat = sharedPreferences.getInt("fat", 0);
+        int maxSaturates = sharedPreferences.getInt("saturates", 0);
+        int maxSalt = sharedPreferences.getInt("salt", 0);
+        int maxSugar = sharedPreferences.getInt("sugar", 0);
+        int maxWater = sharedPreferences.getInt("water", 0);
+
+        int caloriesPercent = (currentCalories*100) / max(1,maxCalories);
+        int fatPercent = (currentFat*100) / max(1,maxFat);
+        int saturatesPercent = (currentSaturates*100) / max(1,maxSaturates);
+        int saltPercent = (currentSalt*100) / max(1,maxSalt);
+        int sugarPercent = (currentSugar*100) / max(1,maxSugar);
+        int waterPercent = (currentWater*100) / max(1,maxWater);
+
+        ProgressBar calories = findViewById(R.id.caloriesBar);
+        ProgressBar fat = findViewById(R.id.fatBar);
+        ProgressBar saturates = findViewById(R.id.saturatesBar);
+        ProgressBar salt = findViewById(R.id.saltBar);
+        ProgressBar sugar = findViewById(R.id.sugarBar);
+        TextView hydration = findViewById(R.id.hydrationAmount);
+
+        calories.setProgress(caloriesPercent);
+        fat.setProgress(fatPercent);
+        saturates.setProgress(saturatesPercent);
+        salt.setProgress(saltPercent);
+        sugar.setProgress(sugarPercent);
+        hydration.setText(Integer.toString(waterPercent)+"%");
+        if (caloriesPercent < 70){
+            calories.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ffa500")));
+        } else if (caloriesPercent < 99){
+            calories.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#aaff00")));
+        } else {
+            calories.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ee4b2b")));
+        }
+        if (fatPercent < 70){
+            fat.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ffa500")));
+        } else if (fatPercent < 99){
+            fat.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#aaff00")));
+        } else {
+            fat.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ee4b2b")));
+        }
+        if (saturatesPercent < 70){
+            saturates.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ffa500")));
+        } else if (saturatesPercent < 99){
+            saturates.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#aaff00")));
+        } else {
+            saturates.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ee4b2b")));
+        }
+        if (saltPercent < 70){
+            salt.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ffa500")));
+        } else if (saltPercent < 99){
+            salt.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#aaff00")));
+        } else {
+            salt.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ee4b2b")));
+        }
+        if (sugarPercent < 70){
+            sugar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ffa500")));
+        } else if (sugarPercent < 99){
+            sugar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#aaff00")));
+        } else {
+            sugar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ee4b2b")));
         }
     }
 
