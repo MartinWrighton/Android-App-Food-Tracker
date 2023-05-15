@@ -17,26 +17,31 @@
             android:name=".add_hydration"
             android:exported="false"
             android:label="@string/title_activity_add_hydration"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppLayouts" />
         <activity
             android:name=".calendar"
             android:exported="false"
             android:label="@string/title_activity_calendar"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppLayouts" />
         <activity
             android:name=".add_nutrition"
             android:exported="false"
             android:label="@string/title_activity_add_nutrition"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppLayouts" />
         <activity
             android:name=".Profile"
             android:exported="false"
             android:label="@string/title_activity_profile"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppLayouts" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
             android:label="@string/app_name"
+            android:screenOrientation="portrait"
             android:theme="@style/Theme.AppLayouts">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -19,38 +19,47 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <View
-        android:id="@+id/hydrationBox"
+        android:id="@+id/hydrationBoxMain"
         android:layout_width="318dp"
         android:layout_height="245dp"
         android:layout_marginTop="5dp"
         android:background="@drawable/hydrationgradient"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/hydrationHolderMain" />
+    <View
+        android:id="@+id/hydrationHolderMain"
+        android:layout_width="318dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/hydrationText" />
 
     <TextView
-        android:id="@+id/hydrationAmount"
+        android:id="@+id/hydrationAmountMain"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="0%"
         android:textSize="32sp"
-        app:layout_constraintBottom_toBottomOf="@+id/hydrationBox"
-        app:layout_constraintEnd_toEndOf="@+id/hydrationBox"
+        app:layout_constraintBottom_toBottomOf="@+id/hydrationHolderMain"
+        app:layout_constraintEnd_toEndOf="@+id/hydrationHolderMain"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="@+id/hydrationBox"
-        app:layout_constraintTop_toTopOf="@+id/hydrationBox"
+        app:layout_constraintStart_toStartOf="@+id/hydrationHolderMain"
+        app:layout_constraintTop_toTopOf="@+id/hydrationHolderMain"
         app:layout_constraintVertical_bias="0.5" />
+
 
     <Button
         android:id="@+id/trackButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="12dp"
         android:onClick="hydrationButtonPress"
         android:text="Track More"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hydrationBox" />
+        app:layout_constraintTop_toBottomOf="@+id/hydrationHolderMain" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -66,11 +66,6 @@ public class add_nutrition extends AppCompatActivity {
     }
 
     private void updateBoxes(){
-        View caloriesBox = findViewById(R.id.caloriesBox);
-        View fatBox = findViewById(R.id.fatBox);
-        View saturatesBox = findViewById(R.id.saturatesBox);
-        View saltBox = findViewById(R.id.saltBox);
-        View sugarBox = findViewById(R.id.sugarBox);
 
         TextView caloriesP = findViewById(R.id.caloriesP);
         TextView fatP = findViewById(R.id.fatP);
@@ -93,18 +88,18 @@ public class add_nutrition extends AppCompatActivity {
         int maxWater = sharedPreferences.getInt("water", 0);
 
 
-        if(String.valueOf(calories.getText()).length() != 0 && String.valueOf(fat.getText()).length() != 0 && String.valueOf(saturates.getText()).length() != 0 && String.valueOf(salt.getText()).length() != 0 && String.valueOf(sugar.getText()).length() != 0) {
-            double caloriesPer = (Math.round((Double.parseDouble("0"+String.valueOf(calories.getText())) * 100) / max(1,maxCalories)*100))/100;
-            double fatPer = (Math.round((Double.parseDouble("0"+String.valueOf(fat.getText())) * 100) / max(1,maxFat)*100))/100;
-            double saturatesPer = (Math.round((Double.parseDouble("0"+String.valueOf(saturates.getText())) * 100) / max(1,maxSaturates)*100))/100;
-            double saltPer = (Math.round((Double.parseDouble("0"+String.valueOf(salt.getText())) * 100) / max(1,maxSalt)*100))/100;
-            double sugarPer = (Math.round((Double.parseDouble("0"+String.valueOf(sugar.getText())) * 100) / max(1,maxSugar)*100))/100;
-            caloriesP.setText(Double.toString(caloriesPer )+"%");
-            fatP.setText(Double.toString(fatPer)+ "%");
-            saturatesP.setText(Double.toString(saturatesPer) + "%");
-            saltP.setText(Double.toString(saltPer)+ "%");
-            sugarP.setText(Double.toString(sugarPer)+ "%");
-        }
+
+        double caloriesPer = (Math.round((Double.parseDouble("0"+String.valueOf(calories.getText())) * 100) / max(1,maxCalories)*100))/100;
+        double fatPer = (Math.round((Double.parseDouble("0"+String.valueOf(fat.getText())) * 100) / max(1,maxFat)*100))/100;
+        double saturatesPer = (Math.round((Double.parseDouble("0"+String.valueOf(saturates.getText())) * 100) / max(1,maxSaturates)*100))/100;
+        double saltPer = (Math.round((Double.parseDouble("0"+String.valueOf(salt.getText())) * 100) / max(1,maxSalt)*100))/100;
+        double sugarPer = (Math.round((Double.parseDouble("0"+String.valueOf(sugar.getText())) * 100) / max(1,maxSugar)*100))/100;
+        caloriesP.setText(Double.toString(caloriesPer )+"%");
+        fatP.setText(Double.toString(fatPer)+ "%");
+        saturatesP.setText(Double.toString(saturatesPer) + "%");
+        saltP.setText(Double.toString(saltPer)+ "%");
+        sugarP.setText(Double.toString(sugarPer)+ "%");
+
 
         if (Double.parseDouble("0"+String.valueOf(fat.getText())) <= 3 ){
             findViewById(R.id.fatBox).setBackgroundColor(Color.parseColor("#aaff00"));
@@ -181,18 +176,18 @@ public class add_nutrition extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("Profile", MODE_PRIVATE);
         SharedPreferences.Editor myEdit = sharedPreferences.edit();
 
-        int cCalories = sharedPreferences.getInt("currentCalories", 0);
-        int cFat = sharedPreferences.getInt("currentFat", 0);
-        int cSaturates = sharedPreferences.getInt("currentSaturates", 0);
-        int cSalt = sharedPreferences.getInt("currentSalt", 0);
-        int cSugar = sharedPreferences.getInt("currentSugar", 0);
+        float cCalories = sharedPreferences.getInt("currentCalories", 0);
+        float cFat = sharedPreferences.getInt("currentFat", 0);
+        float cSaturates = sharedPreferences.getInt("currentSaturates", 0);
+        float cSalt = sharedPreferences.getFloat("currentSalt", 0);
+        float cSugar = sharedPreferences.getInt("currentSugar", 0);
 
 
-        myEdit.putInt("currentCalories", cCalories+Integer.parseInt("0"+calories.getText().toString())*Integer.valueOf("0"+portions.getText().toString()));
-        myEdit.putInt("currentFat", cFat+Integer.parseInt("0"+fat.getText().toString())*Integer.valueOf("0"+portions.getText().toString()));
-        myEdit.putInt("currentSaturates", cSaturates+Integer.parseInt("0"+saturates.getText().toString())*Integer.valueOf("0"+portions.getText().toString()));
-        myEdit.putInt("currentSalt", cSalt+Integer.parseInt("0"+salt.getText().toString())*Integer.valueOf("0"+portions.getText().toString()));
-        myEdit.putInt("currentSugar", cSugar+Integer.parseInt("0"+sugar.getText().toString())*Integer.valueOf("0"+portions.getText().toString()));
+        myEdit.putFloat("currentCalories", cCalories+Float.parseFloat("0"+calories.getText().toString())*Float.parseFloat("0"+portions.getText().toString()));
+        myEdit.putFloat("currentFat", cFat+Float.parseFloat("0"+fat.getText().toString())*Float.parseFloat("0"+portions.getText().toString()));
+        myEdit.putFloat("currentSaturates", cSaturates+Float.parseFloat("0"+saturates.getText().toString())*Float.parseFloat("0"+portions.getText().toString()));
+        myEdit.putFloat("currentSalt", cSalt+Float.parseFloat("0"+salt.getText().toString())*Float.parseFloat("0"+portions.getText().toString()));
+        myEdit.putFloat("currentSugar", cSugar+Float.parseFloat("0"+sugar.getText().toString())*Float.parseFloat("0"+portions.getText().toString()));
         myEdit.apply();
         finish();
 

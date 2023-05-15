@@ -27,7 +27,7 @@
         android:textSize="32sp"
         app:layout_constraintBottom_toBottomOf="@+id/hydrationBox"
         app:layout_constraintEnd_toEndOf="@+id/hydrationBox"
-        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="@+id/hydrationBox"
         app:layout_constraintTop_toTopOf="@+id/hydrationBox"
         app:layout_constraintVertical_bias="0.5" />
@@ -35,9 +35,18 @@
     <View
         android:id="@+id/hydrationBox"
         android:layout_width="318dp"
-        android:layout_height="245dp"
+        android:layout_height="1dp"
         android:layout_marginTop="96dp"
         android:background="@drawable/addhydrationgradient"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="@+id/hydrationHolder" />
+
+    <View
+        android:id="@+id/hydrationHolder"
+        android:layout_width="318dp"
+        android:layout_height="245dp"
+        android:layout_marginTop="96dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titleText" />
@@ -47,6 +56,7 @@
         android:layout_width="200dp"
         android:layout_height="100dp"
         android:layout_marginTop="96dp"
+        android:onClick="saveButton"
         android:text="Save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"

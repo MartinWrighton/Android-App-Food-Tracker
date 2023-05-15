@@ -22,6 +22,8 @@ import android.Manifest;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.util.DisplayMetrics;
+import android.util.Log;
 import android.view.View;
 
 import androidx.core.content.ContextCompat;
@@ -33,6 +35,7 @@ import androidx.navigation.ui.AppBarConfiguration;
 
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -200,11 +203,11 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
     private void updateBars(){
         //display data correctly
         SharedPreferences sharedPreferences = getSharedPreferences("Profile", MODE_PRIVATE);
-        int currentCalories = sharedPreferences.getInt("currentCalories", 0);
-        int currentFat = sharedPreferences.getInt("currentFat", 0);
-        int currentSaturates = sharedPreferences.getInt("currentSaturates", 0);
-        int currentSalt = sharedPreferences.getInt("currentSalt", 0);
-        int currentSugar = sharedPreferences.getInt("currentSugar", 0);
+        Float currentCalories = sharedPreferences.getFloat("currentCalories", Float.valueOf(0));
+        Float currentFat = sharedPreferences.getFloat("currentFat", Float.valueOf(0));
+        Float currentSaturates = sharedPreferences.getFloat("currentSaturates", Float.valueOf(0));
+        Float currentSalt = sharedPreferences.getFloat("currentSalt", Float.valueOf(0));
+        Float currentSugar = sharedPreferences.getFloat("currentSugar", Float.valueOf(0));
         int currentWater = sharedPreferences.getInt("currentWater", 0);
 
 
@@ -215,26 +218,31 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
         int maxSugar = sharedPreferences.getInt("sugar", 0);
         int maxWater = sharedPreferences.getInt("water", 0);
 
-        int caloriesPercent = (currentCalories*100) / max(1,maxCalories);
-        int fatPercent = (currentFat*100) / max(1,maxFat);
-        int saturatesPercent = (currentSaturates*100) / max(1,maxSaturates);
-        int saltPercent = (currentSalt*100) / max(1,maxSalt);
-        int sugarPercent = (currentSugar*100) / max(1,maxSugar);
+        Float caloriesPercent = (currentCalories*100) / max(1,maxCalories);
+        Float fatPercent = (currentFat*100) / max(1,maxFat);
+        Float saturatesPercent = (currentSaturates*100) / max(1,maxSaturates);
+        Float saltPercent = (currentSalt*100) / max(1,maxSalt);
+        Float sugarPercent = (currentSugar*100) / max(1,maxSugar);
         int waterPercent = (currentWater*100) / max(1,maxWater);
-
         ProgressBar calories = findViewById(R.id.caloriesBar);
         ProgressBar fat = findViewById(R.id.fatBar);
         ProgressBar saturates = findViewById(R.id.saturatesBar);
         ProgressBar salt = findViewById(R.id.saltBar);
         ProgressBar sugar = findViewById(R.id.sugarBar);
-        TextView hydration = findViewById(R.id.hydrationAmount);
+        TextView hydration = findViewById(R.id.hydrationAmountMain);
 
-        calories.setProgress(caloriesPercent);
-        fat.setProgress(fatPercent);
-        saturates.setProgress(saturatesPercent);
-        salt.setProgress(saltPercent);
-        sugar.setProgress(sugarPercent);
-        hydration.setText(Integer.toString(waterPercent)+"%");
+        calories.setProgress(Math.round(caloriesPercent));
+        fat.setProgress(Math.round(fatPercent));
+        saturates.setProgress(Math.round(saturatesPercent));
+        salt.setProgress(Math.round(saltPercent));
+        sugar.setProgress(Math.round(sugarPercent));
+
+
+        if(waterPercent>100){
+            waterPercent=100;
+        }
+        hydration.setText(Float.toString(waterPercent)+"%");
+
         if (caloriesPercent < 70){
             calories.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ffa500")));
         } else if (caloriesPercent < 99){
@@ -270,6 +278,21 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
         } else {
             sugar.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ee4b2b")));
         }
+
+
+
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displayMetrics);
+        int height = displayMetrics.heightPixels;
+
+        View box = findViewById(R.id.hydrationBoxMain);
+        int maxHeight = height/3;
+        Log.d("maxheight", String.valueOf(maxHeight));
+        int newHeight = Math.round((waterPercent* maxHeight)/100);
+        Log.d("newHeight", String.valueOf(newHeight));
+        ViewGroup.LayoutParams params = box.getLayoutParams();
+        params.height = Math.round(Math.max(newHeight,1));
+        box.setLayoutParams(params);
     }
 
 
