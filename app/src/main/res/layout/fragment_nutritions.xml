@@ -66,7 +66,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saturatesBar" />
+        app:layout_constraintTop_toBottomOf="@+id/sugarBar" />
 
     <TextView
         android:id="@+id/sugarText"
@@ -78,7 +78,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saltBar" />
+        app:layout_constraintTop_toBottomOf="@+id/saturatesBar" />
 
     <Button
         android:id="@+id/trackButton"
@@ -89,7 +89,7 @@
         android:text="Track More"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/sugarBar" />
+        app:layout_constraintTop_toBottomOf="@+id/saltBar" />
 
     <ProgressBar
         android:id="@+id/caloriesBar"

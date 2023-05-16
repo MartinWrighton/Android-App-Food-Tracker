@@ -14,6 +14,16 @@
         android:theme="@style/Theme.AppLayouts"
         tools:targetApi="31">
         <activity
+            android:name=".dev"
+            android:exported="false"
+            android:label="@string/title_activity_dev"
+            android:theme="@style/Theme.AppLayouts"/>
+        <activity
+            android:name=".userGuide"
+            android:exported="false"
+            android:label="@string/title_activity_user_guide"
+            android:theme="@style/Theme.AppLayouts" />
+        <activity
             android:name=".add_hydration"
             android:exported="false"
             android:label="@string/title_activity_add_hydration"
@@ -40,7 +50,7 @@
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:label="@string/app_name"
+            android:label="Nutritional"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppLayouts">
             <intent-filter>

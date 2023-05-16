@@ -176,11 +176,11 @@ public class add_nutrition extends AppCompatActivity {
         SharedPreferences sharedPreferences = getSharedPreferences("Profile", MODE_PRIVATE);
         SharedPreferences.Editor myEdit = sharedPreferences.edit();
 
-        float cCalories = sharedPreferences.getInt("currentCalories", 0);
-        float cFat = sharedPreferences.getInt("currentFat", 0);
-        float cSaturates = sharedPreferences.getInt("currentSaturates", 0);
+        float cCalories = sharedPreferences.getFloat("currentCalories", 0);
+        float cFat = sharedPreferences.getFloat("currentFat", 0);
+        float cSaturates = sharedPreferences.getFloat("currentSaturates", 0);
         float cSalt = sharedPreferences.getFloat("currentSalt", 0);
-        float cSugar = sharedPreferences.getInt("currentSugar", 0);
+        float cSugar = sharedPreferences.getFloat("currentSugar", 0);
 
 
         myEdit.putFloat("currentCalories", cCalories+Float.parseFloat("0"+calories.getText().toString())*Float.parseFloat("0"+portions.getText().toString()));

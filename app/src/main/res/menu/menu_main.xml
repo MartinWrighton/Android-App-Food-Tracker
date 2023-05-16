@@ -15,4 +15,8 @@
         android:icon="@drawable/profile_icon"
         android:title="@string/action_profile"
         app:showAsAction="ifRoom" />
+    <item android:id="@+id/action_share"
+        android:title="@string/share"
+        app:showAsAction="never"
+        app:actionProviderClass="androidx.appcompat.widget.ShareActionProvider"/>
 </menu>

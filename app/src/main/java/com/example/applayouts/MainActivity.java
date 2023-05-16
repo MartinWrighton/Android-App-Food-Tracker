@@ -26,8 +26,10 @@ import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 
+import androidx.appcompat.widget.ShareActionProvider;
 import androidx.core.content.ContextCompat;
 
+import androidx.core.view.MenuItemCompat;
 import androidx.navigation.ui.AppBarConfiguration;
 
 
@@ -41,6 +43,8 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.time.LocalDate;
+
 public class MainActivity extends AppCompatActivity {
 
     private AppBarConfiguration appBarConfiguration;
@@ -50,21 +54,21 @@ A: Two screens, basically done Very Easy 4%                                     
 B: App lifecycle, onResume()   Easy 3%                                                                                      DONE
 C: Permissions, permission to send notifications Might be easy 2%                                                           DONE
 D: Intents, use to move between screens, easy 2%                                                                            DONE
-E: Intents 2, use to open calendar? hopefully easy 2%
+E: Intents 2, use to open calendar? hopefully easy 2%                                                                       DONE
 F: Content Provider, use it to access my own database, hard 6%                                                              DONE
 G: Shared Preferences, simple data storage, use to store user information, moderate 2%                                      DONE
 H: Database, use to store history information, hard 6%                                                                      DONE
 I: Firebase, for login? moderate 4%                                                                                         NO
 J: Broadcasts, receives hydration alarm broadcast easy if used 2%                                                           DONE
-K: Extend View, not sure how to use but is easy 2%
-L: ShareActionProvider, used to share things online?, use to share streak. moderate 2%
+K: Extend View, not sure how to use but is easy 2%                                                                          NO
+L: ShareActionProvider, used to share things online?, use to share streak. moderate 2%                                      DONE
 M: Service, does something while the app isn't open, don't know how to use, 6%                                              NO
 N: Alarms, set hydration alarms, easy  2%                                                                                   DONE
 O: Notification, send hydration notifications, easy 2%                                                                      DONE
-P: Touch gestures, scrolling or swiping between screens, optional easy 3%
+P: Touch gestures,swipe to fill hyrdation ,easy 3%                                                                          DONE
 
 
-    add first time setup
+
      */
     @RequiresApi(api = Build.VERSION_CODES.TIRAMISU)
     @Override
@@ -94,6 +98,46 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
                     perms,1
                     );
         }
+        //FIRST TIME SETUP
+
+        SharedPreferences sharedPreferences = getSharedPreferences("Profile", MODE_PRIVATE);
+        int currentDay = sharedPreferences.getInt("day", -1); // returns -1 if this is the first time the app was started
+        if (currentDay == -1){
+            for(int i = 0; i<28;i++){
+                ContentValues values = new ContentValues();
+                values.put("score",-1);
+                getContentResolver().insert(myProvider.uri, values);
+            }
+            LocalDate date = LocalDate.now();
+
+            String longdate = Integer.toString(date.getYear())+Integer.toString(date.getMonthValue())+Integer.toString(date.getDayOfMonth());
+
+            SharedPreferences.Editor myEdit = sharedPreferences.edit();
+            myEdit.putInt("day", 0);
+            myEdit.putString("date", longdate);
+            myEdit.apply();
+
+            Intent intent = new Intent(this, Profile.class);
+            startActivity(intent);
+
+        }
+
+        //check for passed days
+
+        LocalDate date = LocalDate.now();
+        String longdate = Integer.toString(date.getYear())+Integer.toString(date.getMonthValue())+Integer.toString(date.getDayOfMonth());
+        int daysPast = Integer.parseInt(longdate) - Integer.parseInt(sharedPreferences.getString("date", "0"));
+        if (daysPast > 0){
+            //NEW DAY;
+            SharedPreferences.Editor myEdit = sharedPreferences.edit();
+            myEdit.putString("date", longdate);
+            for (int i = 0; i <daysPast;i++){
+                newDay();
+            }
+
+
+        }
+
 
     updateBars();
 
@@ -121,7 +165,7 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
                             this.getApplicationContext(), 234324243, intent, PendingIntent.FLAG_IMMUTABLE);
                     AlarmManager alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
                     alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, System.currentTimeMillis()
-                            + (i * 1000),60000, pendingIntent);
+                            + (i * 1000),10800000, pendingIntent);
                 } else {
                     // Explain to the user that the feature is unavailable because
                     // the feature requires a permission that the user has denied.
@@ -140,6 +184,18 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
+
+        MenuItem shareItem = menu.findItem(R.id.action_share);
+        ShareActionProvider myShareActionProvider = (ShareActionProvider) MenuItemCompat.getActionProvider(shareItem);
+
+        SharedPreferences sharedPreferences = getSharedPreferences("Profile", MODE_PRIVATE);
+        int score = sharedPreferences.getInt("highScore", -0);
+
+        Intent myShareIntent = new Intent(Intent.ACTION_SEND);
+        myShareIntent.setType("text/plain");
+        myShareIntent.putExtra(Intent.EXTRA_STREAM, score);
+        myShareActionProvider.setShareIntent(myShareIntent);
+
         return true;
     }
 
@@ -241,7 +297,7 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
         if(waterPercent>100){
             waterPercent=100;
         }
-        hydration.setText(Float.toString(waterPercent)+"%");
+        hydration.setText(Integer.toString(waterPercent)+"%");
 
         if (caloriesPercent < 70){
             calories.setProgressTintList(ColorStateList.valueOf(Color.parseColor("#ffa500")));
@@ -295,5 +351,81 @@ P: Touch gestures, scrolling or swiping between screens, optional easy 3%
         box.setLayoutParams(params);
     }
 
+    public void newDay(){
+        SharedPreferences sharedPreferences = getSharedPreferences("Profile", MODE_PRIVATE);
+        Float currentCalories = sharedPreferences.getFloat("currentCalories", Float.valueOf(0));
+        Float currentFat = sharedPreferences.getFloat("currentFat", Float.valueOf(0));
+        Float currentSaturates = sharedPreferences.getFloat("currentSaturates", Float.valueOf(0));
+        Float currentSalt = sharedPreferences.getFloat("currentSalt", Float.valueOf(0));
+        Float currentSugar = sharedPreferences.getFloat("currentSugar", Float.valueOf(0));
+        int currentWater = sharedPreferences.getInt("currentWater", 0);
+        int currentDay = sharedPreferences.getInt("day", -1);
 
+        int maxCalories = sharedPreferences.getInt("calories", 0);
+        int maxFat = sharedPreferences.getInt("fat", 0);
+        int maxSaturates = sharedPreferences.getInt("saturates", 0);
+        int maxSalt = sharedPreferences.getInt("salt", 0);
+        int maxSugar = sharedPreferences.getInt("sugar", 0);
+        int maxWater = sharedPreferences.getInt("water", 0);
+
+        Float caloriesPercent = (currentCalories*100) / max(1,maxCalories);
+        Float fatPercent = (currentFat*100) / max(1,maxFat);
+        Float saturatesPercent = (currentSaturates*100) / max(1,maxSaturates);
+        Float saltPercent = (currentSalt*100) / max(1,maxSalt);
+        Float sugarPercent = (currentSugar*100) / max(1,maxSugar);
+        int waterPercent = (currentWater*100) / max(1,maxWater);
+
+        //calculate score
+        int score = 0;
+
+        if (caloriesPercent >=70 && caloriesPercent < 100){
+            score += 1;
+        }
+        if (fatPercent >=70 && caloriesPercent < 100){
+            score += 1;
+        }
+        if (saturatesPercent >=70 && caloriesPercent < 100){
+            score += 1;
+        }
+        if (saltPercent >=70 && caloriesPercent < 100){
+            score += 1;
+        }
+        if (sugarPercent >=70 && caloriesPercent < 100){
+            score += 1;
+        }
+        if (waterPercent >=70){
+            score += 1;
+        }
+        if (score == 0){
+            score = -1;
+        }
+        //add to database
+        ContentValues values = new ContentValues();
+        values.put("score",score);
+        getContentResolver().insert(myProvider.uri, values);
+        //reset values
+
+        SharedPreferences.Editor myEdit = sharedPreferences.edit();
+        myEdit.putInt("day", currentDay+1);
+
+
+        myEdit.putFloat("currentCalories", 0);
+        myEdit.putFloat("currentFat", 0);
+        myEdit.putFloat("currentSaturates", 0);
+        myEdit.putFloat("currentSalt", 0);
+        myEdit.putFloat("currentSugar", 0);
+        myEdit.putInt("currentWater", 0);
+        myEdit.apply();
+        updateBars();
+
+
+
+
+    }
+
+
+    public void toUserGuide(View view) {
+        Intent intent = new Intent(this, userGuide.class);
+        startActivity(intent);
+    }
 }

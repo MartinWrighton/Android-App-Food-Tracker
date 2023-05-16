@@ -204,4 +204,10 @@ public class Profile extends AppCompatActivity {
 
 
     }
+
+    public void toDev(View view) {
+        Intent intent = new Intent(this, dev.class);
+        startActivity(intent);
+
+    }
 }
